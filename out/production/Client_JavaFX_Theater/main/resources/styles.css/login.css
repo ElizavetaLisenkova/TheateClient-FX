@@ -1,0 +1,25 @@
+.mainBackGround{
+    -fx-background-color: #000000;
+    /*-fx-background-color: -moz-linear-gradient(-45deg, #000000 0%, #0452B2 100%, #C59237 100%);*/
+    /*-fx-background-color: -webkit-linear-gradient(-45deg, #000000 0%, #0452B2 100%, #C59237 100%);*/
+    /*-fx-background-color: linear-gradient(135deg, #000000 0%, #0452B2 100%, #C59237 100%);*/
+}
+
+.login-view{
+
+    -fx-background-image: linear-gradient(to right, #2D819D 20%, #969696 20%);
+}
+
+.login-title{
+    -fx-alignment: center-left;
+    -fx-padding: 16px;
+
+}
+
+.login-title > .header {
+-fx-font-size: 20;
+}
+
+.login-body{
+    -fx-padding: 16 64 16 16;
+}
