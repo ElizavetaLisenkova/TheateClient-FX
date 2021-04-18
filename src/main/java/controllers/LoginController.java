@@ -45,7 +45,7 @@ public class LoginController {
                     close();
                 }
 
-                else {
+                if (loginBtn.isFocused()) {
                     login();
                 }
             }

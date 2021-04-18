@@ -1,25 +1,77 @@
-.mainBackGround{
-    -fx-background-color: #000000;
-    /*-fx-background-color: -moz-linear-gradient(-45deg, #000000 0%, #0452B2 100%, #C59237 100%);*/
-    /*-fx-background-color: -webkit-linear-gradient(-45deg, #000000 0%, #0452B2 100%, #C59237 100%);*/
-    /*-fx-background-color: linear-gradient(135deg, #000000 0%, #0452B2 100%, #C59237 100%);*/
+
+@font-face {
+    font-family: 'Prompt';
+    src: url('styles.css/Prompt/Prompt-Bold.ttf');
 }
 
 .login-view{
+    -fx-pref-width: 450px;
+    -fx-pref-height: 384px;
+    -fx-border-color: 1px solid #000000;
+    -fx-background-color: radial-gradient(focus-angle 50deg, focus-distance 30% , center 70% 50% , radius 65% , #011732, #06194a, #0a1622, #000000);
 
-    -fx-background-image: linear-gradient(to right, #2D819D 20%, #969696 20%);
 }
 
 .login-title{
-    -fx-alignment: center-left;
+
     -fx-padding: 16px;
 
 }
 
-.login-title > .header {
--fx-font-size: 20;
+.button:hover{
+    -fx-border-radius: 40px;
+    -fx-border-width: 3px;
+    /*-fx-background-color: rgba(208, 208, 208, 0.99);*/
+
+    -fx-border-color: rgba(0, 0, 0, 0.86);
+    /*-fx-text-fill: rgba(255, 255, 255, 0.99);*/
 }
 
-.login-body{
-    -fx-padding: 16 64 16 16;
+.login-title > .header {
+    -fx-alignment: center-center;
+    -fx-font-family: 'Prompt';
+    -fx-font-style: normal;
+    -fx-font-weight: bold;
+    -fx-font-size: 64px;
+    -fx-pref-height: 97px;
+    -fx-text-fill: rgba(255, 255, 255, 0.99);
+
 }
+.grid-pane{
+    -fx-alignment: center-center;
+    -fx-pref-width: 371px;
+    -fx-pref-height: 216px;
+}
+
+.login-field, .password-field{
+    -fx-font-family: 'Prompt', sans-serif;
+
+    -fx-font-style: normal;
+    -fx-text-fill: rgba(255, 255, 255, 0.98);
+    -fx-font-size: 20px;
+    -fx-padding: 0 0 0 73;
+    -fx-background-color: rgba(255, 255, 255, 0.25);
+    /*-fx-background-color: transparent;*/
+    -fx-background-radius: 40px;
+    -fx-pref-width: 371px;
+    -fx-pref-height: 60px;
+}
+
+
+
+.login-body{
+
+    -fx-pref-width: 371px;
+    -fx-pref-height: 216px;
+}
+
+.close-btn, .login-btn{
+    -fx-font-family: 'Prompt';
+    -fx-font-size: 20px;
+    -fx-pref-width: 179px;
+    -fx-pref-height: 60px;
+    -fx-background-color: rgba(255, 255, 255, 0.99);
+    -fx-background-radius: 40px;
+    -fx-text-fill: rgba(0, 0, 0, 0.86);
+}
+
