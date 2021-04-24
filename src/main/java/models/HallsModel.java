@@ -26,6 +26,7 @@ public class HallsModel implements ApiModel{
     public String toJson() {
 
         Map<String, String> map = new HashMap<>();
+        map.put("id", String.valueOf(id.get()));
         map.put("name", name.get());
         map.put("totalPlaces", String.valueOf(totalSeats.get()));
 

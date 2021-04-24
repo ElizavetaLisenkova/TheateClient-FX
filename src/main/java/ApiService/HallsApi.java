@@ -1,0 +1,55 @@
+package ApiService;
+
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import models.HallsModel;
+import utils.HttpClass;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class HallsApi {
+    private static final String ServerURL = "http://localhost:8080";
+
+
+    public void createHall(HallsModel hall) {
+        HttpClass.PostRequest(ServerURL + "/hall", hall.toJson());
+    }
+
+    public HallsApi() {
+    }
+
+    public List<HallsModel> getHalls() {
+        List<HallsModel> result = new ArrayList<>();
+        String buffer = HttpClass.GetRequest(ServerURL + "/hall");
+
+        JsonArray jsonResult = JsonParser.parseString(buffer).getAsJsonArray();
+        System.out.println(jsonResult.toString());
+        for (int i = 0; i < jsonResult.size(); i++) {
+            JsonObject currentHallsModel = jsonResult.get(i).getAsJsonObject();
+            Long id = currentHallsModel.get("id").getAsLong();
+            String name = currentHallsModel.get("name").getAsString();
+            Integer totalSeats = currentHallsModel.get("totalPlaces").getAsInt();
+
+            HallsModel newHallsModel = new HallsModel(id, name, totalSeats);
+            result.add(newHallsModel);
+        }
+        return result;
+    }
+
+
+    public void updateHall(HallsModel hall) {
+        Long id = hall.getId();
+        String jsonString = hall.toJson();
+        HttpClass.PutRequest(ServerURL + "/hall/" + id, jsonString);
+    }
+
+
+    public boolean deleteHall(HallsModel hall) {
+        Long id = hall.getId();
+        if (id == null)
+            return false;
+        return HttpClass.DeleteRequest(ServerURL + "/hall/" + id);
+    }
+}

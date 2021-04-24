@@ -34,15 +34,11 @@
       </HBox>
       <VBox styleClass="table-wrapper" VBox.vgrow="ALWAYS">
          <children>
-            <TableView prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+            <TableView fx:id="hallsTable" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
               <columns>
-                <TableColumn fx:id="id" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" text="id" />
-                <TableColumn fx:id="name" maxWidth="180.0" minWidth="180.0" prefWidth="180.0" text="Название" />
-                  <TableColumn fx:id="date" minWidth="0.0" prefWidth="64.7999267578125" text="Дата" />
-                  <TableColumn fx:id="time" minWidth="0.0" prefWidth="64.7999267578125" text="Время" />
-                  <TableColumn fx:id="troup" prefWidth="79.20001220703125" text="Труппа" />
-                  <TableColumn fx:id="hall" prefWidth="108.0" text="Зал" />
-                  <TableColumn fx:id="status" prefWidth="64.0" text="Статус" />
+                <TableColumn fx:id="id" minWidth="0.0" prefWidth="65.60003280639648" text="id" />
+                <TableColumn fx:id="name" minWidth="0.0" prefWidth="673.6000213623047" text="Название" />
+                  <TableColumn fx:id="totalSeats" minWidth="0.0" prefWidth="304.79998779296875" text="Количество мест" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

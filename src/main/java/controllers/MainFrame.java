@@ -11,6 +11,8 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import utils.Menu;
 
+import java.io.InputStream;
+
 
 public class MainFrame {
 
@@ -31,6 +33,7 @@ public class MainFrame {
 
         Node node = (Node) event.getSource();
         Menu menu = Menu.valueOf(node.getId());
+        System.out.println(node.getId());
         loadView(menu);
 
     }
@@ -48,9 +51,11 @@ public class MainFrame {
             }
 
             contentView.getChildren().clear();
+            System.out.println(menu.getFxml());
+            InputStream stream = getClass().getResourceAsStream("/views.fxml/" + menu.getFxml());
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views.fxml/" + menu.getFxml()));
-            Parent view = loader.load();
+            FXMLLoader loader = new FXMLLoader();
+            Parent view = loader.load(stream);
 
             contentView.getChildren().add(view);
         } catch (Exception e) {
