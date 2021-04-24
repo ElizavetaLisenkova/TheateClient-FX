@@ -12,12 +12,16 @@
 }
 
 .login-view{
-    -fx-pref-width: 450px;
-    -fx-pref-height: 384px;
+    -fx-pref-width: 1280px;
+    -fx-pref-height: 740px;
     -fx-background-color: radial-gradient(focus-angle 40deg, focus-distance 90% , center 70% 50% , radius 70% , #3282b8, #0f4c75, #1b262c, #1b262c);
 
 }
 
+.login-view-main{
+    -fx-pref-width: 450px;
+    -fx-pref-height: 384px;
+}
 .login-title{
 
     -fx-padding: 16px;

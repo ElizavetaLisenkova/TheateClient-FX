@@ -6,11 +6,12 @@
     white-text: rgba(255, 255, 255, 0.98);
 }
 
+
 .main-frame_all{
     -fx-pref-width: 1280px;
     -fx-pref-height: 740px;
-    -fx-background-color: radial-gradient(focus-angle 200deg, focus-distance 90% , center 40% 50% , radius 70% , secondary-light, secondary, primary, primary);
-
+    /*-fx-background-color: radial-gradient(focus-angle 200deg, focus-distance 90% , center 40% 40% , radius 90% , secondary-light, secondary, primary, primary);*/
+    -fx-background-color: linear-gradient(to bottom right, secondary, primary);
 }
 
 .menu-object{

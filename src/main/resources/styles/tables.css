@@ -10,6 +10,7 @@
 .content-view-header > .title{
     -fx-font-size: 20px;
     -fx-padding: 0 0 0 20;
+    -fx-text-fill: rgba(255, 255, 255, 0.99);
 }
 
 .search-bar{

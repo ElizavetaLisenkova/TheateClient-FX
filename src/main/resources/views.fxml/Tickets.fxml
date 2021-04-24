@@ -26,11 +26,11 @@
       </HBox>
       <HBox prefHeight="1.0" prefWidth="600.0" styleClass="search-bar">
          <children>
-            <TextField prefHeight="26.0" prefWidth="217.0" promptText="Билеты" />
-            <Button mnemonicParsing="false" text="Поиск" />
-            <Button mnemonicParsing="false" text="Редактировать" />
-            <Button mnemonicParsing="false" text="Удалить" />
-            <Button mnemonicParsing="false" text="Добавить" />
+            <TextField fx:id="searchField" prefHeight="26.0" prefWidth="217.0" promptText="Залы" />
+            <Button fx:id="searchBtn" mnemonicParsing="false" text="Поиск" />
+            <Button fx:id="editBtn" mnemonicParsing="false" text="Редактировать" />
+            <Button fx:id="deleteBtn" mnemonicParsing="false" text="Удалить" />
+            <Button fx:id="createBtn" mnemonicParsing="false" text="Добавить" />
          </children>
       </HBox>
       <VBox styleClass="table-wrapper" VBox.vgrow="ALWAYS">

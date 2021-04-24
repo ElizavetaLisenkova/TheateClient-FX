@@ -41,6 +41,8 @@ public class HallsJsonParser {
     }
 
 
+
+
     public void updateHall(HallsModel hall) {
         Long id = hall.getId();
         String jsonString = hall.toJson();

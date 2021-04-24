@@ -59,15 +59,16 @@ public class HallsModel implements ApiModel{
         this.name.set(name);
     }
 
-    public int getTotalSeats() {
-        return seatsNumber.get();
-    }
 
     public IntegerProperty seatsNumberProperty() {
         return seatsNumber;
     }
 
-    public void setTotalSeats(int seatsNumber) {
+    public int getSeatsNumber() {
+        return seatsNumber.get();
+    }
+
+    public void setSeatsNumber(int seatsNumber) {
         this.seatsNumber.set(seatsNumber);
     }
 }
