@@ -9,13 +9,14 @@
 
 .content-view-header > .title{
     -fx-font-size: 20px;
+    -fx-padding: 0 0 0 20;
 }
 
 .search-bar{
-    -fx-padding: 0 0 0 10;
+    -fx-padding: 0 0 0 40;
     -fx-spacing: 10;
 }
 
 .table-wrapper{
-    -fx-padding: 40;
+    -fx-padding: 30 40 40 40;
 }

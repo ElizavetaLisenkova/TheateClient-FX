@@ -5,9 +5,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="342.0" prefWidth="428.0" styleClass="login-view" stylesheets="@../styles.css/login.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.Login">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="342.0" prefWidth="428.0" styleClass="login-view" stylesheets="@../styles/login.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.Login">
    <children>
-      <HBox styleClass="login-title" stylesheets="@../styles.css/login.css">
+      <HBox styleClass="login-title" stylesheets="@../styles/login.css">
          <children>
             <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="102.0" prefWidth="418.0" styleClass="header" text="Sign in" textAlignment="CENTER">
                <opaqueInsets>

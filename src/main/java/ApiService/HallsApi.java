@@ -10,19 +10,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HallsApi {
+
     private static final String ServerURL = "http://localhost:8080";
-
-
-    public void createHall(HallsModel hall) {
-        HttpClass.PostRequest(ServerURL + "/hall", hall.toJson());
-    }
+    private static final String apiURL = "/hall/";
 
     public HallsApi() {
     }
 
+    public void createHall(HallsModel hall) {
+        HttpClass.PostRequest(ServerURL + apiURL, hall.toJson());
+    }
+
+
     public List<HallsModel> getHalls() {
         List<HallsModel> result = new ArrayList<>();
-        String buffer = HttpClass.GetRequest(ServerURL + "/hall");
+        String buffer = HttpClass.GetRequest(ServerURL + apiURL);
 
         JsonArray jsonResult = JsonParser.parseString(buffer).getAsJsonArray();
         System.out.println(jsonResult.toString());
@@ -42,7 +44,7 @@ public class HallsApi {
     public void updateHall(HallsModel hall) {
         Long id = hall.getId();
         String jsonString = hall.toJson();
-        HttpClass.PutRequest(ServerURL + "/hall/" + id, jsonString);
+        HttpClass.PutRequest(ServerURL + apiURL + id, jsonString);
     }
 
 
@@ -50,6 +52,6 @@ public class HallsApi {
         Long id = hall.getId();
         if (id == null)
             return false;
-        return HttpClass.DeleteRequest(ServerURL + "/hall/" + id);
+        return HttpClass.DeleteRequest(ServerURL + apiURL + id);
     }
 }
