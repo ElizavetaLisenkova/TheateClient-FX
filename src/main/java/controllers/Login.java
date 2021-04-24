@@ -13,19 +13,18 @@ import javafx.stage.Stage;
 import main.java.exceptions.AppException;
 
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 
-public class LoginController {
+public class Login {
 
     public static void loadView(Stage stage){
         try {
 
-            FXMLLoader loader = new FXMLLoader(LoginController.class.getResource("/views.fxml/login.fxml"));
+            FXMLLoader loader = new FXMLLoader(Login.class.getResource("/views.fxml/Login.fxml"));
             Parent view = loader.load();
 
             stage.setScene(new Scene(view));
 
-            LoginController controller = loader.getController();
+            Login controller = loader.getController();
             controller.attachEvent();
 
             stage.show();
@@ -82,20 +81,17 @@ public class LoginController {
             if (loginTf.getText().equals(loginId) && passwordTf.getText().equals(passwordId)) {
 
                 //открытие приложения
-//                MainFrame.show();
+                MainFrame.show();
                 System.out.println("-------------------------------------ВЕРНЫЙ ЛОГИН И ПАРОЛЬ----------");
                 //закрытие формы логина
                 close();
 
 
             } if (loginTf.getText().isEmpty()) {
-                System.out.println("пустой логин");
                 throw new AppException("Пожалуйста, введите логин.");
             } if (passwordTf.getText().isEmpty()) {
-                System.out.println("пустой пароль");
                 throw new AppException("Пожалуйста, введите пароль.");
             } if (!loginTf.getText().equals(loginId) || !passwordTf.getText().equals(passwordId)) {
-                System.out.println("Неверный логин или пароль.");
                 throw new AppException("Неверный логин или пароль.");
             }
         }

@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="342.0" prefWidth="428.0" styleClass="login-view" stylesheets="@../styles.css/login.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.controllers.LoginController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="342.0" prefWidth="428.0" styleClass="login-view" stylesheets="@../styles.css/login.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="main.java.controllers.Login">
    <children>
       <HBox styleClass="login-title" stylesheets="@../styles.css/login.css">
          <children>
@@ -29,7 +29,7 @@
                <children>
                   <TextField fx:id="loginTf" promptText="Login" styleClass="login-field">
                      <font>
-                        <Font name="Harrington" size="8.0" />
+                        <Font name="Prompt" size="8.0" />
                      </font>
                      <opaqueInsets>
                         <Insets />

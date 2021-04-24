@@ -1,14 +1,21 @@
+*{
+    primary: #1b262c;
+    secondary: #0f4c75;
+    secondary-light: #3282b8;
+    primary-light: #bbe1fa;
+    white-text: rgba(255, 255, 255, 0.98);
+}
 
 @font-face {
     font-family: 'Prompt';
-    src: url('styles.css/Prompt/Prompt-Bold.ttf');
+    src: url('../fonts/Prompt/Prompt-Bold.ttf');
 }
 
 .login-view{
     -fx-pref-width: 450px;
     -fx-pref-height: 384px;
     -fx-border-color: 1px solid #000000;
-    -fx-background-color: radial-gradient(focus-angle 50deg, focus-distance 30% , center 70% 50% , radius 65% , #011732, #06194a, #0a1622, #000000);
+    -fx-background-color: radial-gradient(focus-angle 40deg, focus-distance 90% , center 70% 50% , radius 70% , #3282b8, #0f4c75, #1b262c, #1b262c);
 
 }
 
@@ -19,12 +26,12 @@
 }
 
 .button:hover{
-    -fx-border-radius: 40px;
-    -fx-border-width: 3px;
-    /*-fx-background-color: rgba(208, 208, 208, 0.99);*/
+    /*-fx-border-radius: 40px;*/
+    /*-fx-border-width: 3px;*/
+    -fx-background-color: rgb(88, 88, 88);
 
-    -fx-border-color: rgba(0, 0, 0, 0.86);
-    /*-fx-text-fill: rgba(255, 255, 255, 0.99);*/
+    /*-fx-border-color: rgba(0, 0, 0, 0.86);*/
+    -fx-text-fill: rgba(255, 255, 255, 0.95);
 }
 
 .login-title > .header {

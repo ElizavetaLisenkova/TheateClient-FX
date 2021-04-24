@@ -1,0 +1,21 @@
+.content-view{
+    -fx-pref-width: 1188px;
+    -fx-pref-height: 740px;
+}
+
+.content-view-header{
+    -fx-padding: 20px;
+}
+
+.content-view-header > .title{
+    -fx-font-size: 20px;
+}
+
+.search-bar{
+    -fx-padding: 0 0 0 10;
+    -fx-spacing: 10;
+}
+
+.table-wrapper{
+    -fx-padding: 40;
+}
