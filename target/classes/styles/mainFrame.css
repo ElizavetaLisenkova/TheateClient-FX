@@ -9,25 +9,36 @@
 .main-frame_all{
     -fx-pref-width: 1280px;
     -fx-pref-height: 740px;
-    -fx-background-color: radial-gradient(focus-angle 200deg, focus-distance 90% , center 40% 50% , radius 70% , #3282b8, #0f4c75, #1b262c, #1b262c);
+    -fx-background-color: radial-gradient(focus-angle 200deg, focus-distance 90% , center 40% 50% , radius 70% , secondary-light, secondary, primary, primary);
 
 }
 
 .menu-object{
-    -fx-pref-width: 92px;
-    -fx-pref-height: 60px;
-    /*-fx-alignment: center;*/
+    -fx-pref-width: 180px;
+    -fx-pref-height: 55px;
+    /*-fx-spacing: 5px;*/
+    /*-fx-padding: 0 0 0 3;*/
 }
 
 .menu-object-text{
     -fx-text-fill: rgba(255, 255, 255, 0.99);
-    -fx-alignment: center;
+    /*-fx-alignment: center;*/
 }
 
 
 .menu-column {
     -fx-background-color: rgba(255, 255, 255, 0.25);
+    -fx-pref-width: 180px;
 }
+
+
+.menu-object.active, .menu-object.active .label, .menu-object.active SVGPath, .menu-object.active .image{
+    -fx-background-color: primary-light;
+    -fx-text-fill: primary;
+    -fx-fill: primary;
+    -fx-image: url('../images/cinema.png');
+}
+
 
 .menu-object:hover, .menu-object:hover .label, .menu-object:hover SVGPath, .menu-object:hover .image{
     -fx-background-color: primary-light;
@@ -35,9 +46,7 @@
     -fx-fill: primary;
     -fx-image: url('../images/cinema.png');
 }
-/*.menu-object:pressed{*/
-/*    -fx-background-color: primary-light;*/
-/*}*/
+
 .image{
     -fx-image: url('../images/hall1.png');
 }
@@ -46,6 +55,3 @@
     -fx-fill: white;
 }
 
-.menu-object.active{
-    -fx-background-color: secondary-light;
-}
