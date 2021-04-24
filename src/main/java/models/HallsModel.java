@@ -10,16 +10,16 @@ public class HallsModel implements ApiModel{
 
     private final LongProperty id;
     private final StringProperty name;
-    private final IntegerProperty totalSeats;
+    private final IntegerProperty seatsNumber;
 
     public HallsModel() {
         this(null, null, null);
     }
 
-    public HallsModel(Long id, String name, Integer totalSeats) {
+    public HallsModel(Long id, String name, Integer seatsNumber) {
         this.id = new SimpleLongProperty(id);
         this.name = new SimpleStringProperty(name);
-        this.totalSeats = new SimpleIntegerProperty(totalSeats);
+        this.seatsNumber = new SimpleIntegerProperty(seatsNumber);
     }
 
     @Override
@@ -28,7 +28,7 @@ public class HallsModel implements ApiModel{
         Map<String, String> map = new HashMap<>();
         map.put("id", String.valueOf(id.get()));
         map.put("name", name.get());
-        map.put("totalPlaces", String.valueOf(totalSeats.get()));
+        map.put("totalPlaces", String.valueOf(seatsNumber.get()));
 
         Gson gson = new Gson();
         return gson.toJson(map);
@@ -60,14 +60,14 @@ public class HallsModel implements ApiModel{
     }
 
     public int getTotalSeats() {
-        return totalSeats.get();
+        return seatsNumber.get();
     }
 
-    public IntegerProperty totalSeatsProperty() {
-        return totalSeats;
+    public IntegerProperty seatsNumberProperty() {
+        return seatsNumber;
     }
 
-    public void setTotalSeats(int totalSeats) {
-        this.totalSeats.set(totalSeats);
+    public void setTotalSeats(int seatsNumber) {
+        this.seatsNumber.set(seatsNumber);
     }
 }

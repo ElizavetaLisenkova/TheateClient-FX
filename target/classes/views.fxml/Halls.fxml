@@ -39,7 +39,7 @@
               <columns>
                 <TableColumn fx:id="id" minWidth="0.0" prefWidth="65.60003280639648" text="id" />
                 <TableColumn fx:id="name" minWidth="0.0" prefWidth="673.6000213623047" text="Название" />
-                  <TableColumn fx:id="totalSeats" minWidth="0.0" prefWidth="304.79998779296875" text="Количество мест" />
+                  <TableColumn fx:id="seatsNumber" minWidth="0.0" prefWidth="304.79998779296875" text="Количество мест" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

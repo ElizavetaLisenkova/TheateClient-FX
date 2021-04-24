@@ -1,6 +1,6 @@
 package controllers;
 
-import ApiService.HallsApi;
+import ApiService.HallsJsonParser;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -21,9 +21,9 @@ public class Halls {
     private TableColumn<HallsModel, String> name;
 
     @FXML
-    private TableColumn<HallsModel, String> totalSeats;
+    private TableColumn<HallsModel, String> seatsNumber;
 
-    private HallsApi hallsApi = new HallsApi();
+    private HallsJsonParser hallsJsonParser = new HallsJsonParser();
 
 
     public void initialize() {
@@ -32,12 +32,12 @@ public class Halls {
     }
 
     private void initTable(){
-        ObservableList halls = FXCollections.observableList(hallsApi.getHalls());
+        ObservableList halls = FXCollections.observableList(hallsJsonParser.getHalls());
         hallsTable.setItems(halls);
 
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
         name.setCellValueFactory(new PropertyValueFactory<>("name"));
-        totalSeats.setCellValueFactory(new PropertyValueFactory<>("totalSeats"));
+        seatsNumber.setCellValueFactory(new PropertyValueFactory<>("seatsNumber"));
     }
 
 

@@ -9,12 +9,12 @@ import utils.HttpClass;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HallsApi {
+public class HallsJsonParser {
 
     private static final String ServerURL = "http://localhost:8080";
     private static final String apiURL = "/hall/";
 
-    public HallsApi() {
+    public HallsJsonParser() {
     }
 
     public void createHall(HallsModel hall) {
@@ -32,9 +32,9 @@ public class HallsApi {
             JsonObject currentHallsModel = jsonResult.get(i).getAsJsonObject();
             Long id = currentHallsModel.get("id").getAsLong();
             String name = currentHallsModel.get("name").getAsString();
-            Integer totalSeats = currentHallsModel.get("totalPlaces").getAsInt();
+            Integer seatsNumber = currentHallsModel.get("totalPlaces").getAsInt();
 
-            HallsModel newHallsModel = new HallsModel(id, name, totalSeats);
+            HallsModel newHallsModel = new HallsModel(id, name, seatsNumber);
             result.add(newHallsModel);
         }
         return result;
