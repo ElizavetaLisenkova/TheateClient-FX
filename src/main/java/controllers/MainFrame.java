@@ -1,4 +1,4 @@
-package main.java.controllers;
+package controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,7 +9,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import main.java.utils.Menu;
+import utils.Menu;
 
 
 public class MainFrame {

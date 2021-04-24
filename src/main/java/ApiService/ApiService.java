@@ -1,4 +1,4 @@
-package main.java.ApiService;
+package ApiService;
 
 import org.json.JSONArray;
 import org.json.JSONException;

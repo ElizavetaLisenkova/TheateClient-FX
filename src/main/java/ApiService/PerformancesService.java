@@ -1,6 +1,6 @@
-package main.java.ApiService;
+package ApiService;
 
-import main.java.ApiService.ApiService;
+import ApiService.ApiService;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;

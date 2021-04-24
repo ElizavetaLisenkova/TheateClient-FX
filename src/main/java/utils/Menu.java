@@ -1,4 +1,4 @@
-package main.java.utils;
+package utils;
 
 public enum Menu {
     Home("Главная страница"),

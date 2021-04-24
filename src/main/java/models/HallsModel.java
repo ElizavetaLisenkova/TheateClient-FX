@@ -1,5 +1,6 @@
-package main.java.models;
+package models;
 
+import com.google.gson.Gson;
 import javafx.beans.property.*;
 
 import java.util.HashMap;
@@ -31,6 +32,7 @@ public class HallsModel implements ApiModel{
         Gson gson = new Gson();
         return gson.toJson(map);
     }
+
 
     public long getId() {
         return id.get();
