@@ -30,8 +30,6 @@ public class MainFrame {
     private void clickMenu(MouseEvent event) {
 
         Node node = (Node) event.getSource();
-        System.out.println(node.getId());
-        System.out.println("я зашел сюда");
         Menu menu = Menu.valueOf(node.getId());
         loadView(menu);
 
