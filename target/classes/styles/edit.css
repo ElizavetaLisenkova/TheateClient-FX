@@ -1,0 +1,55 @@
+*{
+    primary: #1b262c;
+    secondary: #0f4c75;
+    secondary-light: #3282b8;
+    primary-light: #bbe1fa;
+    white-text: rgba(255, 255, 255, 0.98);
+}
+
+.box-template, .lbl{
+    -fx-spacing: 25px;
+    -fx-text-fill: white-text;
+}
+
+.text-field{
+    -fx-text-fill: rgba(255, 255, 255, 0.98);
+    -fx-font-size: 14px;
+    -fx-padding: 0 0 0 20;
+    -fx-background-color: rgba(255, 255, 255, 0.25);
+    -fx-background-radius: 40px;
+    -fx-pref-height: 40px;
+
+
+}
+
+.edit-view{
+    -fx-text-fill: white-text;
+    -fx-background-color: primary;
+}
+
+.button{
+    -fx-background-color: rgba(255, 255, 255, 0.99);
+    -fx-background-radius: 40px;
+    -fx-text-fill: rgba(0, 0, 0, 0.86);
+    -fx-pref-width: 140px;
+    -fx-pref-height: 40px;
+}
+
+.box-buttons{
+    -fx-spacing: 20px;
+}
+
+.box-template-btn{
+    -fx-padding: 0 0 0 50;
+}
+
+.label-box{
+    -fx-padding: 6 10 0 0;
+    -fx-spacing: 33px;
+}
+
+.title1{
+    -fx-text-fill: rgba(255, 255, 255, 0.98);
+    -fx-font-size: 20px;
+}
+

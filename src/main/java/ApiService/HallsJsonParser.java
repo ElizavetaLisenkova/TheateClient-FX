@@ -18,6 +18,9 @@ public class HallsJsonParser {
     }
 
     public void createHall(HallsModel hall) {
+        System.out.println("im HallsParser createHall");
+        System.out.println(hall.toJson());
+
         HttpClass.PostRequest(ServerURL + apiURL, hall.toJson());
     }
 

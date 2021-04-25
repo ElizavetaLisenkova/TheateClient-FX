@@ -1,15 +1,13 @@
 package controllers;
 
 import ApiService.HallsJsonParser;
+import controllers.editControllers.HallsEdit;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import models.HallsModel;
 
@@ -29,9 +27,6 @@ public class Halls {
 
     @FXML
     private TextField searchField;
-
-    @FXML
-    private Button searchBtn;
 
     @FXML
     private Button editBtn;
@@ -86,5 +81,10 @@ public class Halls {
         sortedData.comparatorProperty().bind(hallsTable.comparatorProperty());
         // 5. Add sorted (and filtered) data to the table.
         hallsTable.setItems(sortedData);
+    }
+
+    @FXML
+    private void createHall() {
+        HallsEdit.showAddView();
     }
 }
