@@ -21,3 +21,23 @@
 .table-wrapper{
     -fx-padding: 30 40 40 40;
 }
+
+.bottom-wrapper{
+    -fx-spacing: 30px;
+    -fx-padding: 0 0 0 40;
+}
+
+.bottom-tf{
+    -fx-pref-width: 200px;
+    -fx-pref-height: 30px;
+}
+
+.edit-pen-wrapper{
+    -fx-padding: 0 40 0 0;
+}
+
+.pen-vbox:hover SVGPath{
+    -fx-background-color: primary-light;
+    -fx-text-fill: primary;
+    -fx-fill: primary;
+}

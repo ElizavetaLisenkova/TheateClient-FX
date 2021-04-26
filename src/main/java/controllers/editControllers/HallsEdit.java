@@ -43,7 +43,6 @@ public class HallsEdit {
     }
 
 
-
     public static void showAddView() {
         try {
 
