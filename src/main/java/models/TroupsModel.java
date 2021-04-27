@@ -6,20 +6,18 @@ import javafx.beans.property.*;
 import java.util.HashMap;
 import java.util.Map;
 
-public class HallsModel implements ApiModel{
+public class TroupsModel implements ApiModel{
 
     private final LongProperty id;
     private final StringProperty name;
-    private final IntegerProperty seatsNumber;
 
-    public HallsModel() {
-        this(null, null, null);
+    public TroupsModel() {
+        this(null, null);
     }
 
-    public HallsModel(Long id, String name, Integer seatsNumber) {
+    public TroupsModel(Long id, String name) {
         this.id = new SimpleLongProperty(id);
         this.name = new SimpleStringProperty(name);
-        this.seatsNumber = new SimpleIntegerProperty(seatsNumber);
     }
 
 
@@ -29,7 +27,6 @@ public class HallsModel implements ApiModel{
         Map<String, String> map = new HashMap<>();
         map.put("id", String.valueOf(id.get()));
         map.put("name", name.get());
-        map.put("totalPlaces", String.valueOf(seatsNumber.get()));
 
         Gson gson = new Gson();
         return gson.toJson(map);
@@ -61,16 +58,4 @@ public class HallsModel implements ApiModel{
         this.name.set(name);
     }
 
-
-    public IntegerProperty seatsNumberProperty() {
-        return seatsNumber;
-    }
-
-    public int getSeatsNumber() {
-        return seatsNumber.get();
-    }
-
-    public void setSeatsNumber(int seatsNumber) {
-        this.seatsNumber.set(seatsNumber);
-    }
 }

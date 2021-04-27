@@ -14,8 +14,10 @@ public class HallsJsonParser {
     private static final String ServerURL = "http://localhost:8080";
     private static final String apiURL = "/hall/";
 
+
     public HallsJsonParser() {
     }
+
 
     public void createHall(HallsModel hall) {
         System.out.println("im HallsParser createHall");
@@ -44,8 +46,6 @@ public class HallsJsonParser {
     }
 
 
-
-
     public void updateHall(HallsModel hall) {
         Long id = hall.getId();
         String jsonString = hall.toJson();
@@ -59,4 +59,5 @@ public class HallsJsonParser {
             return false;
         return HttpClass.DeleteRequest(ServerURL + apiURL + id);
     }
+
 }
