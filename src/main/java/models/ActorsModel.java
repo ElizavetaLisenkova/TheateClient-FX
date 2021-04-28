@@ -1,13 +1,11 @@
 package models;
 
-import com.google.gson.Gson;
-//import com.google.gson.JsonObject;
-import javafx.beans.property.*;
+import javafx.beans.property.LongProperty;
+import javafx.beans.property.SimpleLongProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class ActorsModel implements ApiModel{
 
@@ -27,38 +25,8 @@ public class ActorsModel implements ApiModel{
     }
 
 
-    public void setTroup(TroupsModel troup) {
-        this.troup = troup;
-    }
-
-    public long getTroupId() {
-        return troupId.get();
-    }
-
-    public LongProperty troupIdProperty() {
-        return troupId;
-    }
-
-    public void setTroupId(long troupId) {
-        this.troupId.set(troupId);
-    }
-
-    public String getTroupName() {
-        return troupName.get();
-    }
-
-    public StringProperty troupNameProperty() {
-        return troupName;
-    }
-
-    public void setTroupName(String troupName) {
-        this.troupName.set(troupName);
-    }
-
-
     @Override
     public String toJson() {
-
         JSONObject map = new JSONObject();
         try {
             map.put("id", id.get());
@@ -69,16 +37,10 @@ public class ActorsModel implements ApiModel{
         } catch (JSONException exception) {
             exception.printStackTrace();
         } return null;
-
-
     }
 
     public long getId() {
         return id.get();
-    }
-
-    public LongProperty idProperty() {
-        return id;
     }
 
     public void setId(long id) {
@@ -89,15 +51,9 @@ public class ActorsModel implements ApiModel{
         return fullName.get();
     }
 
-    public StringProperty fullNameProperty() {
-        return fullName;
+    public String getTroupName() {
+        return troupName.get();
     }
 
-    public void setFullName(String fullName) {
-        this.fullName.set(fullName);
-    }
 
-    public TroupsModel getTroup() {
-        return troup;
-    }
 }

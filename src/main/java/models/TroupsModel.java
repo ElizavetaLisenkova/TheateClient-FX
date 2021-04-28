@@ -67,10 +67,4 @@ public class TroupsModel implements ApiModel{
         this.name.set(name);
     }
 
-    @Override
-    public String toString() {
-        String s = "{" + kav + "id" + kav + ":" + id.get() + ", " + kav + "name" + kav + ":" + kav + name.get() + kav + "}";
-        System.out.println(s);
-        return s;
-    }
 }
