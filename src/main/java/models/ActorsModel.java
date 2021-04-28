@@ -39,6 +39,19 @@ public class ActorsModel implements ApiModel{
         } return null;
     }
 
+    public JSONObject toJsonObj() {
+        JSONObject map = new JSONObject();
+        try {
+            map.put("id", id.get());
+            map.put("troup", troup.toJsonObj());
+            map.put("fullName", fullName.get());
+            System.out.println("метод toJson в Актерах: "+map.toString());
+            return map;
+        } catch (JSONException exception) {
+            exception.printStackTrace();
+        } return null;
+    }
+
     public long getId() {
         return id.get();
     }
