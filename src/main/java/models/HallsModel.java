@@ -12,10 +12,6 @@ public class HallsModel implements ApiModel{
     private final StringProperty name;
     private final IntegerProperty seatsNumber;
 
-    public HallsModel() {
-        this(null, null, null);
-    }
-
     public HallsModel(Long id, String name, Integer seatsNumber) {
         this.id = new SimpleLongProperty(id);
         this.name = new SimpleStringProperty(name);
@@ -32,6 +28,7 @@ public class HallsModel implements ApiModel{
         map.put("totalPlaces", String.valueOf(seatsNumber.get()));
 
         Gson gson = new Gson();
+        System.out.println("--------GSON tojson"+gson.toJson(map));
         return gson.toJson(map);
     }
 

@@ -1,6 +1,7 @@
 package models;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import javafx.beans.property.*;
 
 import java.util.HashMap;
@@ -10,6 +11,7 @@ public class TroupsModel implements ApiModel{
 
     private final LongProperty id;
     private final StringProperty name;
+    final char kav = (char) 34;
 
     public TroupsModel() {
         this(null, null);
@@ -20,6 +22,10 @@ public class TroupsModel implements ApiModel{
         this.name = new SimpleStringProperty(name);
     }
 
+    public TroupsModel(JsonObject json) {
+        this.id = new SimpleLongProperty(json.get("id").getAsLong());
+        this.name = new SimpleStringProperty(json.get("name").getAsString());
+    }
 
     @Override
     public String toJson() {
@@ -58,4 +64,10 @@ public class TroupsModel implements ApiModel{
         this.name.set(name);
     }
 
+    @Override
+    public String toString() {
+        String s = "{" + kav + "id" + kav + ":" + id.get() + ", " + kav + "name" + kav + ":" + kav + name.get() + kav + "}";
+        System.out.println("---------------------TroupsModel ToString = "+s);
+        return s;
+    }
 }
