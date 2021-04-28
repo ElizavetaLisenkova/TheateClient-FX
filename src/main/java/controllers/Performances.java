@@ -21,28 +21,28 @@ public class Performances {
     private TextField searchTf;
 
     @FXML
-    private TableView<?> performancesTable;
+    private TableView<PerformancesModel> performancesTable;
 
     @FXML
-    private TableColumn<?, ?> idColumn;
+    private TableColumn<PerformancesModel, String> idColumn;
 
     @FXML
-    private TableColumn<?, ?> nameColumn;
+    private TableColumn<PerformancesModel, String> nameColumn;
 
     @FXML
-    private TableColumn<?, ?> dateColumn;
+    private TableColumn<PerformancesModel, String> dateColumn;
 
     @FXML
-    private TableColumn<?, ?> timeColumn;
+    private TableColumn<PerformancesModel, String> timeColumn;
 
     @FXML
-    private TableColumn<?, ?> troupColumn;
+    private TableColumn<PerformancesModel, String> troupColumn;
 
     @FXML
-    private TableColumn<?, ?> hallColumn;
+    private TableColumn<PerformancesModel, String> hallColumn;
 
     @FXML
-    private TableColumn<?, ?> statusColumn;
+    private TableColumn<PerformancesModel, String> statusColumn;
 
     @FXML
     private TextField idTf;
@@ -110,16 +110,19 @@ public class Performances {
         hallCb.setItems(halls);
 
 //  перемещение выделенного значения в поля для редактирования
-//        performancesTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-//            if (newSelection != null) {
-//                idTf.setText(String.valueOf(newSelection.getId()));
-//                nameTf.setText(newSelection.());
-//                message.setText("");
-//                createBtn.setDisable(true);
-//            } else {
-//                createBtn.setDisable(false);
-//            }
-//        });
+        performancesTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                idTf.setText(String.valueOf(newSelection.getId()));
+                nameTf.setText(newSelection.getName());
+                dateTf.setText(newSelection.getDate());
+                timeTf.setText(newSelection.getTime());
+                statusTf.setText(newSelection.getStatus());
+                message.setText("");
+                createBtn.setDisable(true);
+            } else {
+                createBtn.setDisable(false);
+            }
+        });
 
 //  поиск
         FilteredList<PerformancesModel> filteredData = new FilteredList<>(performances, p -> true);
@@ -147,9 +150,9 @@ public class Performances {
             });
         });
 
-//        SortedList<PerformancesModel> sortedData = new SortedList<>(filteredData);
-//        sortedData.comparatorProperty().bind(performancesTable.comparatorProperty());
-//        performancesTable.setItems(sortedData);
+        SortedList<PerformancesModel> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(performancesTable.comparatorProperty());
+        performancesTable.setItems(sortedData);
 
     }
 
@@ -157,7 +160,8 @@ public class Performances {
     @FXML
     private void createPerformance() {
         if (isInputValid()) {
-            PerformancesModel newPerformance = new PerformancesModel(Long.parseLong(idTf.getText()), nameTf.getText(), dateTf.getText(), timeTf.getText(), (TroupsModel) troupCb.getSelectionModel().getSelectedItem(), (HallsModel) hallCb.getSelectionModel().getSelectedItem(), statusTf.getText());
+            PerformancesModel newPerformance = new PerformancesModel((long) 99999999, nameTf.getText(), dateTf.getText(), timeTf.getText(), (TroupsModel) troupCb.getSelectionModel().getSelectedItem(), (HallsModel) hallCb.getSelectionModel().getSelectedItem(), statusTf.getText());
+            System.out.println("!!!!!!"+newPerformance.toJson());
             performancesJsonParser.createPerformance(newPerformance);
             clearTextFields();
             message.setText("Успешно создано.");
@@ -176,7 +180,7 @@ public class Performances {
             alert.setHeaderText("Вы действительно хотите удалить элемент с id: " + idTf.getText() + "?" );
             alert.showAndWait();
             if (alert.getResult()==ButtonType.OK){
-                PerformancesModel newPerformance = new PerformancesModel(Long.parseLong(idTf.getText()), nameTf.getText(), dateTf.getText(), timeTf.getText(), (TroupsModel) troupCb.getSelectionModel().getSelectedItem(), (HallsModel) hallCb.getSelectionModel().getSelectedItem(), statusTf.getText());
+                PerformancesModel newPerformance = new PerformancesModel(Long.parseLong(idTf.getText()));
                 performancesJsonParser.deletePerformance(newPerformance);
                 clearTextFields();
                 message.setText("Успешно удалено.");
@@ -204,13 +208,30 @@ public class Performances {
     //  проверка корректности введенных данных
     private boolean isInputValid() {
         if (nameTf.getText().isEmpty()) {
-            message.setText("Введите ФИО.");
+            message.setText("Введите название.");
+            return false;
+        }
+        if (dateTf.getText().isEmpty()) {
+            message.setText("Введите дату.");
+            return false;
+        }
+        if (timeTf.getText().isEmpty()) {
+            message.setText("Введите время.");
             return false;
         }
         if (troupCb.getSelectionModel().getSelectedItem() == null){
             message.setText("Выберите труппу.");
             return false;
         }
+        if (hallCb.getSelectionModel().getSelectedItem() == null){
+            message.setText("Выберите зал.");
+            return false;
+        }
+        if (statusTf.getText().isEmpty()) {
+            message.setText("Введите статус.");
+            return false;
+        }
+
         else {
             return true;
         }

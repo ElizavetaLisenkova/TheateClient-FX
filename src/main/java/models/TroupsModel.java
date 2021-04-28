@@ -70,7 +70,6 @@ public class TroupsModel implements ApiModel{
     @Override
     public String toString() {
         String s = "{" + kav + "id" + kav + ":" + id.get() + ", " + kav + "name" + kav + ":" + kav + name.get() + kav + "}";
-        System.out.println(s);
         return s;
     }
 }

@@ -39,6 +39,10 @@ public class ActorsModel implements ApiModel{
         } return null;
     }
 
+    public ActorsModel(Long id) {
+        this.id = new SimpleLongProperty(id);
+    }
+
     public JSONObject toJsonObj() {
         JSONObject map = new JSONObject();
         try {

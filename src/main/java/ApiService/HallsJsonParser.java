@@ -20,8 +20,6 @@ public class HallsJsonParser {
 
 
     public void createHall(HallsModel hall) {
-        System.out.println("im HallsParser createHall");
-        System.out.println(hall.toJson());
 
         HttpClass.PostRequest(ServerURL + apiURL, hall.toJson());
     }
@@ -32,7 +30,7 @@ public class HallsJsonParser {
         String buffer = HttpClass.GetRequest(ServerURL + apiURL);
 
         JsonArray jsonResult = JsonParser.parseString(buffer).getAsJsonArray();
-        System.out.println(jsonResult.toString());
+
         for (int i = 0; i < jsonResult.size(); i++) {
             JsonObject currentHallsModel = jsonResult.get(i).getAsJsonObject();
             Long id = currentHallsModel.get("id").getAsLong();

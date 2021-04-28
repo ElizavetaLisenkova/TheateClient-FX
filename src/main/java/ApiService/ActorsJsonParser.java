@@ -21,8 +21,6 @@ public class ActorsJsonParser {
 
 
     public void createActor(ActorsModel actor) {
-        System.out.println("im ActorsParser createActor");
-        System.out.println(actor.toJson());
         HttpClass.PostRequest(ServerURL + apiURL, actor.toJson());
     }
 
@@ -32,7 +30,7 @@ public class ActorsJsonParser {
         String buffer = HttpClass.GetRequest(ServerURL + apiURL);
 
         JsonArray jsonResult = JsonParser.parseString(buffer).getAsJsonArray();
-        System.out.println(jsonResult.toString());
+
         for (int i = 0; i < jsonResult.size(); i++) {
             JsonObject currentActorsModel = jsonResult.get(i).getAsJsonObject();
             Long id = currentActorsModel.get("id").getAsLong();

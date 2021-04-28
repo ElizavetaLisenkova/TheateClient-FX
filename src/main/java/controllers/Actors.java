@@ -136,7 +136,7 @@ public class Actors {
             alert.setHeaderText("Вы действительно хотите удалить элемент с id: " + idTf.getText() + "?" );
             alert.showAndWait();
             if (alert.getResult()==ButtonType.OK){
-                ActorsModel newActor = new ActorsModel(Long.parseLong(idTf.getText()), nameTf.getText(), (TroupsModel) troupCb.getSelectionModel().getSelectedItem());
+                ActorsModel newActor = new ActorsModel(Long.parseLong(idTf.getText()));
                 actorsJsonParser.deleteActor(newActor);
                 clearTextFields();
                 message.setText("Успешно удалено.");

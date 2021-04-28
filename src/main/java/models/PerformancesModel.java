@@ -35,6 +35,9 @@ public class PerformancesModel implements ApiModel{
         this.status = new SimpleStringProperty(status);
     }
 
+    public PerformancesModel(Long id) {
+        this.id = new SimpleLongProperty(id);
+    }
 
     @Override
     public String toJson() {
@@ -47,7 +50,7 @@ public class PerformancesModel implements ApiModel{
             map.put("troup", troup.toJsonObj());
             map.put("hall", hall.toJsonObj());
             map.put("status", status.get());
-            System.out.println("метод toJson в Актерах: "+map.toString());
+            System.out.println("метод toJson в представлениях: "+map.toString());
             return map.toString();
         } catch (JSONException exception) {
             exception.printStackTrace();

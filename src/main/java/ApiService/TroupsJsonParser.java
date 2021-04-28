@@ -29,7 +29,7 @@ public class TroupsJsonParser {
         String buffer = HttpClass.GetRequest(ServerURL + apiURL);
 
         JsonArray jsonResult = JsonParser.parseString(buffer).getAsJsonArray();
-        System.out.println(jsonResult.toString());
+
         for (int i = 0; i < jsonResult.size(); i++) {
             JsonObject currentTroupsModel = jsonResult.get(i).getAsJsonObject();
             Long id = currentTroupsModel.get("id").getAsLong();
