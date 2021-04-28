@@ -148,10 +148,8 @@ public class Troups {
 
     //  проверка корректности введенных данных
     private boolean isInputValid() {
-        String errorMessage = "";
         if (nameTf.getText().isEmpty()) {
-            errorMessage += "Введите название.";
-            message.setText(errorMessage);
+            message.setText("Введите название.");
             return false;
         }
         else {

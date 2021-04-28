@@ -158,20 +158,16 @@ public class Halls {
 
 //  проверка корректности введенных данных
     private boolean isInputValid() {
-        String errorMessage = "";
         if (nameTf.getText().isEmpty()) {
-            errorMessage += "Введите название.";
-            message.setText(errorMessage);
+            message.setText("Введите название.");
             return false;
         }
         if (seatsNumberTf.getText().isEmpty()) {
-            errorMessage += "Введите количество мест.";
-            message.setText(errorMessage);
+            message.setText("Введите количество мест.");
             return false;
         }
         if (checkForInteger(seatsNumberTf)) {
-            errorMessage += "Поле количество мест должно содержать число.";
-            message.setText(errorMessage);
+            message.setText("Поле количество мест должно содержать число.");
             return false;
         }
         else {

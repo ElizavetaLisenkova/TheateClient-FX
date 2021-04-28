@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -55,9 +55,9 @@
          <children>
             <HBox styleClass="bottom-wrapper-tf">
                <children>
-                  <TextField fx:id="idTf" prefHeight="26.0" prefWidth="209.0" promptText="id" styleClass="bottom-tf" />
-                  <TextField fx:id="nameTf" prefHeight="26.0" prefWidth="274.0" promptText="ФИО" styleClass="bottom-tf" />
-                  <ChoiceBox fx:id="troupCb" prefHeight="40.0" prefWidth="150.0" styleClass="bottom-tf" />
+                  <TextField fx:id="idTf" prefHeight="26.0" prefWidth="209.0" promptText="id" styleClass="bottom-tfId" />
+                  <TextField fx:id="nameTf" prefHeight="26.0" prefWidth="274.0" promptText="ФИО" styleClass="bottom-tf2" />
+                  <ComboBox fx:id="troupCb" prefWidth="150.0" promptText="Труппа" styleClass="bottom-cb" />
                   <VBox fx:id="clearBtn" alignment="CENTER" onMouseClicked="#clearTextFields" styleClass="pen-vbox">
                      <children>
                         <SVGPath content="M16 0c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16zM16 29c-7.18 0-13-5.82-13-13s5.82-13 13-13 13 5.82 13 13-5.82 13-13 13z M21 8l-5 5-5-5-3 3 5 5-5 5 3 3 5-5 5 5 3-3-5-5 5-5z" />

@@ -2,6 +2,8 @@ package models;
 
 import com.google.gson.Gson;
 import javafx.beans.property.*;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,15 +23,15 @@ public class HallsModel implements ApiModel{
 
     @Override
     public String toJson() {
-
-        Map<String, String> map = new HashMap<>();
-        map.put("id", String.valueOf(id.get()));
-        map.put("name", name.get());
-        map.put("totalPlaces", String.valueOf(seatsNumber.get()));
-
-        Gson gson = new Gson();
-        System.out.println("--------GSON tojson"+gson.toJson(map));
-        return gson.toJson(map);
+        JSONObject map = new JSONObject();
+        try {
+            map.put("id", String.valueOf(id.get()));
+            map.put("name", name.get());
+            map.put("totalPlaces", String.valueOf(seatsNumber.get()));
+            return map.toString();
+        } catch (JSONException exception) {
+            exception.printStackTrace();
+        } return null;
     }
 
 

@@ -3,6 +3,8 @@ package models;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import javafx.beans.property.*;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,10 +14,6 @@ public class TroupsModel implements ApiModel{
     private final LongProperty id;
     private final StringProperty name;
     final char kav = (char) 34;
-
-    public TroupsModel() {
-        this(null, null);
-    }
 
     public TroupsModel(Long id, String name) {
         this.id = new SimpleLongProperty(id);
@@ -29,23 +27,32 @@ public class TroupsModel implements ApiModel{
 
     @Override
     public String toJson() {
+        JSONObject map = new JSONObject();
 
-        Map<String, String> map = new HashMap<>();
-        map.put("id", String.valueOf(id.get()));
-        map.put("name", name.get());
+        try {
+            map.put("id", String.valueOf(id.get()));
+            map.put("name", name.get());
+            return map.toString();
+        } catch (JSONException exception) {
+            exception.printStackTrace();
+        }return null;
 
-        Gson gson = new Gson();
-        return gson.toJson(map);
     }
 
+    public JSONObject toJsonObj() {
+        JSONObject obj = new JSONObject();
+        try {
+            obj.put("id", String.valueOf(id.get()));
+            obj.put("name", name.get());
+            return obj;
+        } catch (JSONException exception) {
+            exception.printStackTrace();
+        }return null;
 
+    }
 
     public long getId() {
         return id.get();
-    }
-
-    public LongProperty idProperty() {
-        return id;
     }
 
     public void setId(long id) {
@@ -56,10 +63,6 @@ public class TroupsModel implements ApiModel{
         return name.get();
     }
 
-    public StringProperty nameProperty() {
-        return name;
-    }
-
     public void setName(String name) {
         this.name.set(name);
     }
@@ -67,7 +70,7 @@ public class TroupsModel implements ApiModel{
     @Override
     public String toString() {
         String s = "{" + kav + "id" + kav + ":" + id.get() + ", " + kav + "name" + kav + ":" + kav + name.get() + kav + "}";
-        System.out.println("---------------------TroupsModel ToString = "+s);
+        System.out.println(s);
         return s;
     }
 }

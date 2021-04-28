@@ -38,7 +38,7 @@ public class Actors {
     private TextField nameTf;
 
     @FXML
-    private ChoiceBox troupCb;
+    private ComboBox troupCb;
 
     @FXML
     private VBox clearBtn;
@@ -75,7 +75,7 @@ public class Actors {
         actorsTable.setPlaceholder(new Label("Нет значений."));
 
         ObservableList troups = FXCollections.observableList(troupsJsonParser.getTroups());
-        troupCb.getItems().addAll(troups);
+        troupCb.setItems(troups);
 
 //  перемещение выделенного значения в поля для редактирования
         actorsTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
@@ -163,10 +163,12 @@ public class Actors {
 
     //  проверка корректности введенных данных
     private boolean isInputValid() {
-        String errorMessage = "";
         if (nameTf.getText().isEmpty()) {
-            errorMessage += "Введите название.";
-            message.setText(errorMessage);
+            message.setText("Введите ФИО.");
+            return false;
+        }
+        if (troupCb.getSelectionModel().getSelectedItem() == null){
+            message.setText("Выберите труппу.");
             return false;
         }
         else {
