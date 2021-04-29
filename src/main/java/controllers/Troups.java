@@ -46,6 +46,16 @@ public class Troups {
     @FXML
     private Label message;
 
+    @FXML
+    private Button statisticBtn;
+
+    @FXML
+    void showStatistic() {
+        Statistic st = new Statistic();
+        st.show();
+    }
+
+
     private TroupsJsonParser troupsJsonParser = new TroupsJsonParser();
 
 

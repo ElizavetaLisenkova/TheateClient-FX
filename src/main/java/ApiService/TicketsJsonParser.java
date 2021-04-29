@@ -9,6 +9,9 @@ import utils.HttpClass;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ */
 public class TicketsJsonParser {
 
     private static final String ServerURL = "http://localhost:8080";
