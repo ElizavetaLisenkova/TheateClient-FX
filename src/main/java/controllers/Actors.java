@@ -2,7 +2,6 @@ package controllers;
 
 import ApiService.ActorsJsonParser;
 import ApiService.TroupsJsonParser;
-import com.google.gson.JsonObject;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -63,17 +62,17 @@ public class Actors {
         initTable();
     }
 
-    private void initTable() {
 
+    private void initTable() {
+//  заполнение таблицы
         ObservableList actors = FXCollections.observableList(actorsJsonParser.getActors());
         actorsTable.setItems(actors);
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("fullName"));
         troupColumn.setCellValueFactory(new PropertyValueFactory<>("troupName"));
-
         idTf.setDisable(true);
         actorsTable.setPlaceholder(new Label("Нет значений."));
-
+//  заполнение ComboBox трупп
         ObservableList troups = FXCollections.observableList(troupsJsonParser.getTroups());
         troupCb.setItems(troups);
 
@@ -106,14 +105,12 @@ public class Actors {
                 } return false;
             });
         });
-
         SortedList<ActorsModel> sortedData = new SortedList<>(filteredData);
         sortedData.comparatorProperty().bind(actorsTable.comparatorProperty());
         actorsTable.setItems(sortedData);
-
     }
 
-    //  создание
+//  создание
     @FXML
     private void createActor() {
         if (isInputValid()) {
@@ -125,7 +122,7 @@ public class Actors {
         }
     }
 
-    //  удаление
+//  удаление
     @FXML
     private void deleteActor(){
         if (idTf.getText().isEmpty()) {
@@ -145,7 +142,7 @@ public class Actors {
         }
     }
 
-    //  редактирование
+//  редактирование
     @FXML
     private void editActor() {
         if (idTf.getText().isEmpty()){
@@ -161,7 +158,7 @@ public class Actors {
         }
     }
 
-    //  проверка корректности введенных данных
+//  проверка корректности введенных данных
     private boolean isInputValid() {
         if (nameTf.getText().isEmpty()) {
             message.setText("Введите ФИО.");
@@ -176,7 +173,7 @@ public class Actors {
         }
     }
 
-    //  очистка текстовых полей снизу
+//  очистка текстовых полей снизу
     @FXML
     private void clearTextFields() {
         idTf.clear();
@@ -185,7 +182,7 @@ public class Actors {
         actorsTable.getSelectionModel().clearSelection();
     }
 
-    //  очистка поля поиска
+//  очистка поля поиска
     @FXML
     private void clearSearchTf(){
         searchTf.clear();

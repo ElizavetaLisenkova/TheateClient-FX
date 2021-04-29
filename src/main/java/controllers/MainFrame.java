@@ -16,7 +16,6 @@ import java.io.InputStream;
 
 public class MainFrame {
 
-
     @FXML
     private VBox sideBar;
 
@@ -28,39 +27,34 @@ public class MainFrame {
         loadView(Menu.Home);
     }
 
+//  при клике на кнопку меню
     @FXML
     private void clickMenu(MouseEvent event) {
-
         Node node = (Node) event.getSource();
         Menu menu = Menu.valueOf(node.getId());
         loadView(menu);
-
     }
 
+//  загружает нужный fxml с таблицей
     private void loadView(Menu menu) {
         try {
-
             for (Node node : sideBar.getChildren()) {
-
                 node.getStyleClass().remove("active");
-
                 if (node.getId().equals(menu.name())) {
                     node.getStyleClass().add("active");
                 }
             }
-
             contentView.getChildren().clear();
             InputStream stream = getClass().getResourceAsStream("/views.fxml/" + menu.getFxml());
-
             FXMLLoader loader = new FXMLLoader();
             Parent view = loader.load(stream);
-
             contentView.getChildren().add(view);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+//  загружает MainFrame fxml
     public static void show() {
         try{
             Stage stage = new Stage();

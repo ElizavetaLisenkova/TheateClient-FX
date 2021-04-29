@@ -61,16 +61,14 @@ public class Halls {
 
 
     private void initTable() {
-
+//  заполнение таблицы
         ObservableList halls = FXCollections.observableList(hallsJsonParser.getHalls());
         hallsTable.setItems(halls);
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         seatsNumberColumn.setCellValueFactory(new PropertyValueFactory<>("seatsNumber"));
-
         idTf.setDisable(true);
         hallsTable.setPlaceholder(new Label("Нет значений."));
-
 //  перемещение выделенного значения в поля для редактирования
         hallsTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
@@ -83,7 +81,6 @@ public class Halls {
                 createBtn.setDisable(false);
             }
         });
-
 //  поиск
         FilteredList<HallsModel> filteredData = new FilteredList<>(halls, p -> true);
         searchTf.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -101,11 +98,9 @@ public class Halls {
                 } return false;
             });
         });
-
         SortedList<HallsModel> sortedData = new SortedList<>(filteredData);
         sortedData.comparatorProperty().bind(hallsTable.comparatorProperty());
         hallsTable.setItems(sortedData);
-
     }
 
 //  создание
@@ -199,6 +194,5 @@ public class Halls {
     private void clearSearchTf(){
         searchTf.clear();
     }
-
 
 }

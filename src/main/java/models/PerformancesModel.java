@@ -15,12 +15,11 @@ public class PerformancesModel implements ApiModel{
     private StringProperty date;
     private StringProperty time;
     private TroupsModel troup;
-    private LongProperty troupId;
     private StringProperty troupName;
     private HallsModel hall;
-    private LongProperty hallId;
     private StringProperty hallName;
     private StringProperty status;
+
 
     public PerformancesModel(Long id, String name, String date, String time, TroupsModel troup, HallsModel hall, String status) {
         this.id = new SimpleLongProperty(id);
@@ -28,10 +27,8 @@ public class PerformancesModel implements ApiModel{
         this.date = new SimpleStringProperty(date);
         this.time = new SimpleStringProperty(time);
         this.troup = troup;
-        this.troupId = new SimpleLongProperty(troup.getId());
         this.troupName = new SimpleStringProperty(troup.getName());
         this.hall = hall;
-        this.hallId = new SimpleLongProperty(hall.getId());
         this.hallName = new SimpleStringProperty(hall.getName());
         this.status = new SimpleStringProperty(status);
     }
@@ -42,10 +39,8 @@ public class PerformancesModel implements ApiModel{
         this.date = new SimpleStringProperty(json.get("date").getAsString());
         this.time = new SimpleStringProperty(json.get("time").getAsString());
         this.troup = new TroupsModel(json.get("troup").getAsJsonObject());
-        this.troupId = new SimpleLongProperty(troup.getId());
         this.troupName = new SimpleStringProperty(troup.getName());
         this.hall = new HallsModel(json.get("hall").getAsJsonObject());;
-        this.hallId = new SimpleLongProperty(hall.getId());
         this.hallName = new SimpleStringProperty(hall.getName());
         this.status = new SimpleStringProperty(json.get("status").getAsString());
     }
@@ -53,6 +48,7 @@ public class PerformancesModel implements ApiModel{
     public PerformancesModel(Long id) {
         this.id = new SimpleLongProperty(id);
     }
+
 
     @Override
     public String toJson() {
@@ -89,7 +85,6 @@ public class PerformancesModel implements ApiModel{
     }
 
 
-//todo удалить ненужные атрибуты
     @Override
     public String toString() {
         return id.get() + ". " + name.get();

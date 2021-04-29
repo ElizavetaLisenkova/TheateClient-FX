@@ -42,17 +42,6 @@ public class ActorsModel implements ApiModel{
         this.id = new SimpleLongProperty(id);
     }
 
-    public JSONObject toJsonObj() {
-        JSONObject map = new JSONObject();
-        try {
-            map.put("id", id.get());
-            map.put("troup", troup.toJsonObj());
-            map.put("fullName", fullName.get());
-            return map;
-        } catch (JSONException exception) {
-            exception.printStackTrace();
-        } return null;
-    }
 
     public long getId() {
         return id.get();

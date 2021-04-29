@@ -1,13 +1,12 @@
 package models;
 
-import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import javafx.beans.property.*;
+import javafx.beans.property.LongProperty;
+import javafx.beans.property.SimpleLongProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class TroupsModel implements ApiModel{
 
@@ -28,7 +27,6 @@ public class TroupsModel implements ApiModel{
     @Override
     public String toJson() {
         JSONObject map = new JSONObject();
-
         try {
             map.put("id", String.valueOf(id.get()));
             map.put("name", name.get());
@@ -36,7 +34,6 @@ public class TroupsModel implements ApiModel{
         } catch (JSONException exception) {
             exception.printStackTrace();
         }return null;
-
     }
 
     public JSONObject toJsonObj() {
@@ -67,15 +64,8 @@ public class TroupsModel implements ApiModel{
         this.name.set(name);
     }
 
-//    @Override
-//    public String toString() {
-//        String s = "{" + kav + "id" + kav + ":" + id.get() + ", " + kav + "name" + kav + ":" + kav + name.get() + kav + "}";
-//        return s;
-//    }
-
     @Override
     public String toString() {
-        String s = id.get()+". " + name.get() ;
-        return s;
+        return id.get()+". " + name.get();
     }
 }

@@ -1,9 +1,7 @@
 package controllers;
 
-import ApiService.HallsJsonParser;
 import ApiService.PerformancesJsonParser;
 import ApiService.TicketsJsonParser;
-import ApiService.TroupsJsonParser;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -12,10 +10,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
-import models.HallsModel;
 import models.PerformancesModel;
 import models.TicketsModel;
-import models.TroupsModel;
 
 public class Tickets {
     @FXML
@@ -69,17 +65,15 @@ public class Tickets {
     @FXML
     private Button deleteBtn;
 
-
     private TicketsJsonParser ticketsJsonParser = new TicketsJsonParser();
     private PerformancesJsonParser performancesJsonParser = new PerformancesJsonParser();
-
 
     public void initialize() {
         initTable();
     }
 
     private void initTable() {
-
+//  заполнение таблицы
         ObservableList tickets = FXCollections.observableList(ticketsJsonParser.getTickets());
         ticketsTable.setItems(tickets);
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -87,14 +81,11 @@ public class Tickets {
         performanceColumn.setCellValueFactory(new PropertyValueFactory<>("performanceName"));
         placeColumn.setCellValueFactory(new PropertyValueFactory<>("place"));
         availabilityColumn.setCellValueFactory(new PropertyValueFactory<>("availability"));
-
         idTf.setDisable(true);
         ticketsTable.setPlaceholder(new Label("Нет значений."));
-
+//  заполнение ComboBox представлений
         ObservableList performances = FXCollections.observableList(performancesJsonParser.getPerformances());
         performanceCb.setItems(performances);
-
-
 //  перемещение выделенного значения в поля для редактирования
         ticketsTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
@@ -108,7 +99,6 @@ public class Tickets {
                 createBtn.setDisable(false);
             }
         });
-
 //  поиск
         FilteredList<TicketsModel> filteredData = new FilteredList<>(tickets, p -> true);
         searchTf.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -130,14 +120,12 @@ public class Tickets {
                 }return false;
             });
         });
-
         SortedList<TicketsModel> sortedData = new SortedList<>(filteredData);
         sortedData.comparatorProperty().bind(ticketsTable.comparatorProperty());
         ticketsTable.setItems(sortedData);
-
     }
 
-    //  создание
+//  создание
     @FXML
     private void createTicket() {
         if (isInputValid()) {
@@ -149,7 +137,7 @@ public class Tickets {
         }
     }
 
-    //  удаление
+//  удаление
     @FXML
     private void deleteTicket(){
         if (idTf.getText().isEmpty()) {
@@ -169,7 +157,7 @@ public class Tickets {
         }
     }
 
-    //  редактирование
+//  редактирование
     @FXML
     private void editTicket() {
         if (idTf.getText().isEmpty()){
@@ -184,10 +172,8 @@ public class Tickets {
             }
         }
     }
-    //TODO сделать проверку на соответсвие шаблону даты и времени
-//    TODO сделать статус combobox
-//    TODO сделать аккаунты и нормальную регистрацию
-    //  проверка корректности введенных данных
+
+//  проверка корректности введенных данных
     private boolean isInputValid() {
         if (priceTf.getText().isEmpty()) {
             message.setText("Введите цену.");
@@ -214,7 +200,7 @@ public class Tickets {
             return false;
         }
         if (!availabilityTf.getText().matches("^(true|false)$") )  {
-            message.setText(" Введите тру или фалсе");
+            message.setText("Введите значение \"true\" или \"false\" в последнее поле");
             return false;
         }
         else {
@@ -222,7 +208,7 @@ public class Tickets {
         }
     }
 
-    //  проверка на число
+//  проверка на число
     private Boolean checkForInteger(TextField textField){
         if (!textField.getText().matches("^[0-9]*$")) {
             return true;
@@ -230,7 +216,8 @@ public class Tickets {
             return false;
         }
     }
-    //  очистка текстовых полей снизу
+
+//  очистка текстовых полей снизу
     @FXML
     private void clearTextFields() {
         idTf.clear();
@@ -241,11 +228,10 @@ public class Tickets {
         ticketsTable.getSelectionModel().clearSelection();
     }
 
-    //  очистка поля поиска
+//  очистка поля поиска
     @FXML
     private void clearSearchTf(){
         searchTf.clear();
     }
-
 
 }

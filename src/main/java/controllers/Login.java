@@ -11,45 +11,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import exceptions.AppException;
-
 import java.io.IOException;
 
+
 public class Login {
-
-    public static void loadView(Stage stage){
-        try {
-
-            FXMLLoader loader = new FXMLLoader(Login.class.getResource("/views.fxml/Login.fxml"));
-            Parent view = loader.load();
-
-            stage.setScene(new Scene(view));
-
-            Login controller = loader.getController();
-            controller.attachEvent();
-
-            stage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-
-        }
-
-    }
-
-    private void attachEvent() {
-        loginTf.getScene().setOnKeyPressed(event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-
-                if (closeBtn.isFocused()) {
-                    close();
-                }
-
-                if (loginBtn.isFocused()) {
-                    login();
-                }
-            }
-        });
-    }
 
     @FXML
     private Label message;
@@ -66,38 +31,61 @@ public class Login {
     @FXML
     private Button loginBtn;
 
+//  загружает форму логина
+    public static void loadView(Stage stage){
+        try {
+            FXMLLoader loader = new FXMLLoader(Login.class.getResource("/views.fxml/Login.fxml"));
+            Parent view = loader.load();
+            stage.setScene(new Scene(view));
+            Login controller = loader.getController();
+            controller.attachEvent();
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+//  проверяет нажаты ли кнопки
+    private void attachEvent() {
+        loginTf.getScene().setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                if (closeBtn.isFocused()) {
+                    close();
+                }
+                if (loginBtn.isFocused()) {
+                    login();
+                }
+            }
+        });
+    }
+
+
+//  закрывает форму логина при нажатии на кнопку закрыть
     @FXML
     private void close() {
         loginBtn.getScene().getWindow().hide();
     }
 
+//  закрывает форму логина и открывает mainFrame(вход в приложение), если логин и пароль верный
     @FXML
     private void login() {
         try {
-
             String loginId = "admin";
             String passwordId = "m";
-
             if (loginTf.getText().equals(loginId) && passwordTf.getText().equals(passwordId)) {
-
                 //открытие приложения
                 MainFrame.show();
                 //закрытие формы логина
                 close();
-
-
+            //проверка на правильность ввода логина и пароля
             } if (loginTf.getText().isEmpty()) {
-                throw new AppException("Пожалуйста, введите логин.");
+                message.setText("Пожалуйста, введите логин.");
             } if (passwordTf.getText().isEmpty()) {
-                throw new AppException("Пожалуйста, введите пароль.");
+                message.setText("Пожалуйста, введите пароль.");
             } if (!loginTf.getText().equals(loginId) || !passwordTf.getText().equals(passwordId)) {
-                throw new AppException("Неверный логин или пароль.");
+                message.setText("Неверный логин или пароль.");
             }
-        }
-        catch (AppException e) {
-            message.setText(e.getMessage());
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             close();
         }

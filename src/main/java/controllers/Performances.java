@@ -3,7 +3,6 @@ package controllers;
 import ApiService.HallsJsonParser;
 import ApiService.PerformancesJsonParser;
 import ApiService.TroupsJsonParser;
-import com.google.gson.JsonObject;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -17,6 +16,7 @@ import models.PerformancesModel;
 import models.TroupsModel;
 
 public class Performances {
+
     @FXML
     private TextField searchTf;
 
@@ -90,7 +90,7 @@ public class Performances {
     }
 
     private void initTable() {
-
+//  заполнение таблицы
         ObservableList performances = FXCollections.observableList(performancesJsonParser.getPerformances());
         performancesTable.setItems(performances);
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -100,15 +100,15 @@ public class Performances {
         troupColumn.setCellValueFactory(new PropertyValueFactory<>("troupName"));
         hallColumn.setCellValueFactory(new PropertyValueFactory<>("hallName"));
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
+//  Внешний вид
         idTf.setDisable(true);
         performancesTable.setPlaceholder(new Label("Нет значений."));
-
+//  заполнение ComboBox трупп
         ObservableList troups = FXCollections.observableList(troupsJsonParser.getTroups());
         troupCb.setItems(troups);
-
+//  заполнение ComboBox залов
         ObservableList halls = FXCollections.observableList(hallsJsonParser.getHalls());
         hallCb.setItems(halls);
-
 //  перемещение выделенного значения в поля для редактирования
         performancesTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
@@ -123,7 +123,6 @@ public class Performances {
                 createBtn.setDisable(false);
             }
         });
-
 //  поиск
         FilteredList<PerformancesModel> filteredData = new FilteredList<>(performances, p -> true);
         searchTf.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -149,11 +148,9 @@ public class Performances {
                 }return false;
             });
         });
-
         SortedList<PerformancesModel> sortedData = new SortedList<>(filteredData);
         sortedData.comparatorProperty().bind(performancesTable.comparatorProperty());
         performancesTable.setItems(sortedData);
-
     }
 
     //  создание
@@ -203,8 +200,8 @@ public class Performances {
             }
         }
     }
-//TODO сделать проверку на соответсвие шаблону даты и времени
-//    TODO сделать статус combobox
+
+
 //    TODO сделать аккаунты и нормальную регистрацию
     //  проверка корректности введенных данных
     private boolean isInputValid() {
@@ -215,9 +212,16 @@ public class Performances {
         if (dateTf.getText().isEmpty()) {
             message.setText("Введите дату.");
             return false;
+        }if (!dateTf.getText().matches("^(?:(?:31(\\/|-|\\.)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\\/|-|\\.)(?:0?[1,3-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29(\\/|-|\\.)0?2\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\\d|2[0-8])(\\/|-|\\.)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$")) {
+            message.setText("Дата должна быть в формате ГГГГ-ММ-ДД.");
+            return false;
         }
         if (timeTf.getText().isEmpty()) {
             message.setText("Введите время.");
+            return false;
+        }
+        if (!timeTf.getText().matches("^[0-2][0-3]:[0-5][0-9]$")) {
+            message.setText("Время должно быть в формате 00:00.");
             return false;
         }
         if (troupCb.getSelectionModel().getSelectedItem() == null){

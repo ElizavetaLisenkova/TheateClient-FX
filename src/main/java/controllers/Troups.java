@@ -55,15 +55,13 @@ public class Troups {
 
 
     private void initTable() {
-
+//  заполнение таблицы
         ObservableList troups = FXCollections.observableList(troupsJsonParser.getTroups());
         troupsTable.setItems(troups);
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-
         idTf.setDisable(true);
         troupsTable.setPlaceholder(new Label("Нет значений."));
-
 //  перемещение выделенного значения в поля для редактирования
         troupsTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
@@ -91,14 +89,12 @@ public class Troups {
                 } return false;
             });
         });
-
         SortedList<TroupsModel> sortedData = new SortedList<>(filteredData);
         sortedData.comparatorProperty().bind(troupsTable.comparatorProperty());
         troupsTable.setItems(sortedData);
-
     }
 
-    //  создание
+//  создание
     @FXML
     private void createTroup() {
         if (isInputValid()) {
@@ -110,7 +106,7 @@ public class Troups {
         }
     }
 
-    //  удаление
+//  удаление
     @FXML
     private void deleteTroup(){
         if (idTf.getText().isEmpty()) {
@@ -130,7 +126,7 @@ public class Troups {
         }
     }
 
-    //  редактирование
+//  редактирование
     @FXML
     private void editTroup() {
         if (idTf.getText().isEmpty()){
@@ -146,7 +142,7 @@ public class Troups {
         }
     }
 
-    //  проверка корректности введенных данных
+//  проверка корректности введенных данных
     private boolean isInputValid() {
         if (nameTf.getText().isEmpty()) {
             message.setText("Введите название.");
@@ -157,7 +153,7 @@ public class Troups {
         }
     }
 
-    //  очистка текстовых полей снизу
+//  очистка текстовых полей снизу
     @FXML
     private void clearTextFields() {
         idTf.clear();
@@ -166,11 +162,10 @@ public class Troups {
         troupsTable.getSelectionModel().clearSelection();
     }
 
-    //  очистка поля поиска
+//  очистка поля поиска
     @FXML
     private void clearSearchTf(){
         searchTf.clear();
     }
-
 
 }
