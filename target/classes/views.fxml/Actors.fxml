@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="content-view" stylesheets="/styles/tables.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Actors">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="content-view" stylesheets="/styles/tables.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.Actors">
    <children>
       <HBox>
          <children>
@@ -39,7 +39,7 @@
       </HBox>
       <VBox prefHeight="565.0" prefWidth="1080.0" styleClass="table-wrapper">
          <children>
-            <TableView fx:id="actorsTable" prefHeight="516.0" prefWidth="1000.0" styleClass="table" stylesheets="@../styles/tables.css" VBox.vgrow="ALWAYS">
+            <TableView fx:id="actorsTable" prefHeight="516.0" prefWidth="1000.0" styleClass="table" VBox.vgrow="ALWAYS">
                <columns>
                   <TableColumn fx:id="idColumn" minWidth="0.0" prefWidth="100.0" text="id" />
                   <TableColumn fx:id="nameColumn" minWidth="0.0" prefWidth="432.0" text="ФИО" />

@@ -32,7 +32,6 @@ public class PerformancesJsonParser {
         String buffer = HttpClass.GetRequest(ServerURL + apiURL);
 
         JsonArray jsonResult = JsonParser.parseString(buffer).getAsJsonArray();
-        System.out.println(jsonResult.toString());
         for (int i = 0; i < jsonResult.size(); i++) {
             JsonObject currentPerformancesModel = jsonResult.get(i).getAsJsonObject();
 
@@ -60,7 +59,6 @@ public class PerformancesJsonParser {
 
     public boolean deletePerformance(PerformancesModel performance) {
         Long id = performance.getId();
-        System.out.println(performance.getId());
         if (id == null){
             return false;
         }

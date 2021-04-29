@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="content-view" stylesheets="/styles/tables.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Performances">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="content-view" stylesheets="/styles/tables.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.Performances">
     <children>
         <HBox>
             <children>
@@ -39,7 +39,7 @@
         </HBox>
         <VBox prefHeight="565.0" prefWidth="1080.0" styleClass="table-wrapper">
             <children>
-                <TableView fx:id="performancesTable" prefHeight="516.0" prefWidth="1000.0" styleClass="table" stylesheets="@../styles/tables.css" VBox.vgrow="ALWAYS">
+                <TableView fx:id="performancesTable" prefHeight="516.0" prefWidth="1000.0" styleClass="table" VBox.vgrow="ALWAYS">
                     <columns>
                         <TableColumn fx:id="idColumn" minWidth="0.0" prefWidth="100.0" text="id" />
                         <TableColumn fx:id="nameColumn" minWidth="0.0" prefWidth="432.0" text="Название" />
@@ -63,8 +63,8 @@
                         <TextField fx:id="nameTf" prefHeight="26.0" prefWidth="274.0" promptText="Название" styleClass="bottom-tf" />
                   <TextField fx:id="dateTf" promptText="Дата" />
                   <TextField fx:id="timeTf" layoutX="598.0" layoutY="10.0" promptText="Время" />
-                        <ComboBox fx:id="troupCb" prefWidth="150.0" promptText="Труппа" styleClass="bottom-cb" />
-                  <ComboBox fx:id="hallCb" layoutX="677.0" layoutY="10.0" prefWidth="150.0" promptText="Зал" styleClass="bottom-cb" />
+                        <ComboBox fx:id="troupCb" prefWidth="150.0" promptText="Труппа" styleClass="bottom-cb1" />
+                  <ComboBox fx:id="hallCb" layoutX="677.0" layoutY="10.0" prefWidth="150.0" promptText="Зал" styleClass="bottom-cb1" />
                   <TextField fx:id="statusTf" layoutX="580.0" layoutY="10.0" promptText="Статус" />
                         <VBox fx:id="clearBtn" alignment="CENTER" onMouseClicked="#clearTextFields" styleClass="pen-vbox">
                             <children>

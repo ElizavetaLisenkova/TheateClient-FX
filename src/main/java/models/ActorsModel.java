@@ -32,7 +32,6 @@ public class ActorsModel implements ApiModel{
             map.put("id", id.get());
             map.put("troup", troup.toJsonObj());
             map.put("fullName", fullName.get());
-            System.out.println("метод toJson в Актерах: "+map.toString());
             return map.toString();
         } catch (JSONException exception) {
             exception.printStackTrace();
@@ -49,7 +48,6 @@ public class ActorsModel implements ApiModel{
             map.put("id", id.get());
             map.put("troup", troup.toJsonObj());
             map.put("fullName", fullName.get());
-            System.out.println("метод toJson в Актерах: "+map.toString());
             return map;
         } catch (JSONException exception) {
             exception.printStackTrace();

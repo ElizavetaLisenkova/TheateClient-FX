@@ -38,7 +38,7 @@
       </HBox>
       <VBox prefHeight="565.0" prefWidth="1080.0" styleClass="table-wrapper">
          <children>
-            <TableView fx:id="hallsTable" prefHeight="516.0" prefWidth="1000.0" styleClass="table" stylesheets="@../styles/tables.css" VBox.vgrow="ALWAYS">
+            <TableView fx:id="hallsTable" prefHeight="516.0" prefWidth="1000.0" styleClass="table" VBox.vgrow="ALWAYS">
               <columns>
                 <TableColumn fx:id="idColumn" minWidth="0.0" prefWidth="100.0" text="id" />
                 <TableColumn fx:id="nameColumn" minWidth="0.0" prefWidth="432.0" text="Название" />

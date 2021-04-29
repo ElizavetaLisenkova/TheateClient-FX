@@ -4,11 +4,16 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:controller="controllers.Home" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="content-view" stylesheets="/styles/tables.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="content-view" stylesheets="/styles/tables.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.Home">
    <children>
       <HBox styleClass="content-view-header">
          <children>
             <Label styleClass="title" text="Главная страница" />
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0" styleClass="label-main-wrapper" VBox.vgrow="ALWAYS">
+         <children>
+            <Label alignment="TOP_CENTER" prefHeight="288.0" prefWidth="718.0" styleClass="label-main" text="Добро пожаловать в информационно-справочную систему театра." HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
    </children>

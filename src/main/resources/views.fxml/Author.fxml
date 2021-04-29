@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox fx:controller="controllers.Author" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="content-view" stylesheets="/styles/tables.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="content-view" stylesheets="/styles/tables.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.Author">
    <children>
       <HBox styleClass="content-view-header">
          <children>
             <Label styleClass="title" text="Об авторе" />
          </children>
       </HBox>
+      <VBox prefHeight="200.0" prefWidth="100.0" styleClass="label-main-wrapper" VBox.vgrow="ALWAYS">
+         <children>
+            <Label alignment="TOP_CENTER" prefHeight="27.0" prefWidth="436.0" styleClass="label-main" text="Работу выполнила Лисенкова Елизавета" />
+            <Label prefHeight="54.0" prefWidth="915.0" styleClass="label-main" text="Студентка Финансового Университета при Правительстве РФ, факультета ИТиАБД, группы ПИ19-2." />
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </VBox>
    </children>
 </VBox>

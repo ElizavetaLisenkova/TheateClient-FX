@@ -75,6 +75,6 @@ public class HallsModel implements ApiModel{
     @Override
     public String toString() {
         
-        return "{ \"id\":"+ id.get() +", \"name\": \""+name.get()+"\",  \"totalPlaces\": "+totalPlaces.get()+" }";
+        return id.get()+". "+ name.get();
     }
 }

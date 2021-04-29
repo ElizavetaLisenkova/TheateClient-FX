@@ -15,11 +15,11 @@
 
 <HBox alignment="CENTER" prefHeight="740.0" prefWidth="1280.0" styleClass="login-view" stylesheets="/styles/login.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.Login">
    <children>
-      <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="login-view-main" stylesheets="@../styles/login.css">
+      <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="login-view-main" >
          <children>
             <HBox styleClass="login-title" stylesheets="/styles/login.css">
                <children>
-                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="102.0" prefWidth="418.0" styleClass="header" text="Sign in" textAlignment="CENTER">
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="102.0" prefWidth="418.0" styleClass="header" text="Войти" textAlignment="CENTER">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -38,7 +38,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <TextField fx:id="loginTf" promptText="Login" styleClass="login-field">
+                        <TextField fx:id="loginTf" promptText="Логин" styleClass="login-field">
                            <font>
                               <Font name="Prompt" size="8.0" />
                            </font>
@@ -46,11 +46,11 @@
                               <Insets />
                            </opaqueInsets>
                         </TextField>
-                        <PasswordField fx:id="passwordTf" promptText="Password" GridPane.rowIndex="1" />
+                        <PasswordField fx:id="passwordTf" promptText="Пароль" GridPane.rowIndex="1" />
                         <HBox alignment="TOP_CENTER" spacing="13.0" GridPane.rowIndex="2">
                            <children>
-                              <Button fx:id="closeBtn" graphicTextGap="0.0" mnemonicParsing="false" onAction="#close" styleClass="close-btn" text="Exit" />
-                              <Button fx:id="loginBtn" graphicTextGap="0.0" layoutX="10.0" layoutY="12.0" mnemonicParsing="false" onAction="#login" prefWidth="80.0" styleClass="login-btn" text="Sign in" textAlignment="CENTER" />
+                              <Button fx:id="closeBtn" graphicTextGap="0.0" mnemonicParsing="false" onAction="#close" styleClass="close-btn" text="Выход" />
+                              <Button fx:id="loginBtn" graphicTextGap="0.0" layoutX="10.0" layoutY="12.0" mnemonicParsing="false" onAction="#login" prefWidth="80.0" styleClass="login-btn" text="Войти" textAlignment="CENTER" />
                            </children>
                         </HBox>
                      </children>

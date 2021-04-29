@@ -161,7 +161,6 @@ public class Performances {
     private void createPerformance() {
         if (isInputValid()) {
             PerformancesModel newPerformance = new PerformancesModel((long) 99999999, nameTf.getText(), dateTf.getText(), timeTf.getText(), (TroupsModel) troupCb.getSelectionModel().getSelectedItem(), (HallsModel) hallCb.getSelectionModel().getSelectedItem(), statusTf.getText());
-            System.out.println("!!!!!!"+newPerformance.toJson());
             performancesJsonParser.createPerformance(newPerformance);
             clearTextFields();
             message.setText("Успешно создано.");
@@ -204,7 +203,9 @@ public class Performances {
             }
         }
     }
-
+//TODO сделать проверку на соответсвие шаблону даты и времени
+//    TODO сделать статус combobox
+//    TODO сделать аккаунты и нормальную регистрацию
     //  проверка корректности введенных данных
     private boolean isInputValid() {
         if (nameTf.getText().isEmpty()) {
