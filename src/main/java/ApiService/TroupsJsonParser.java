@@ -5,7 +5,6 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import models.TroupsModel;
 import utils.HttpClass;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +12,6 @@ public class TroupsJsonParser {
 
     private static final String ServerURL = "http://localhost:8080";
     private static final String apiURL = "/troup/";
-
 
     public TroupsJsonParser() {
     }
@@ -27,14 +25,11 @@ public class TroupsJsonParser {
     public List<TroupsModel> getTroups() {
         List<TroupsModel> result = new ArrayList<>();
         String buffer = HttpClass.GetRequest(ServerURL + apiURL);
-
         JsonArray jsonResult = JsonParser.parseString(buffer).getAsJsonArray();
-
         for (int i = 0; i < jsonResult.size(); i++) {
             JsonObject currentTroupsModel = jsonResult.get(i).getAsJsonObject();
             Long id = currentTroupsModel.get("id").getAsLong();
             String name = currentTroupsModel.get("name").getAsString();
-
             TroupsModel newTroupsModel = new TroupsModel(id, name);
             result.add(newTroupsModel);
         }

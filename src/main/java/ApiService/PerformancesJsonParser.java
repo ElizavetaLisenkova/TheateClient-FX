@@ -3,12 +3,10 @@ package ApiService;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import models.ActorsModel;
 import models.HallsModel;
 import models.PerformancesModel;
 import models.TroupsModel;
 import utils.HttpClass;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,11 +28,9 @@ public class PerformancesJsonParser {
     public List<PerformancesModel> getPerformances() {
         List<PerformancesModel> result = new ArrayList<>();
         String buffer = HttpClass.GetRequest(ServerURL + apiURL);
-
         JsonArray jsonResult = JsonParser.parseString(buffer).getAsJsonArray();
         for (int i = 0; i < jsonResult.size(); i++) {
             JsonObject currentPerformancesModel = jsonResult.get(i).getAsJsonObject();
-
             Long id = currentPerformancesModel.get("id").getAsLong();
             String name = currentPerformancesModel.get("name").getAsString();
             String date = currentPerformancesModel.get("date").getAsString();
@@ -42,7 +38,6 @@ public class PerformancesJsonParser {
             TroupsModel troup = new TroupsModel(currentPerformancesModel.get("troup").getAsJsonObject());
             HallsModel hall = new HallsModel(currentPerformancesModel.get("hall").getAsJsonObject());
             String status = currentPerformancesModel.get("status").getAsString();
-
             PerformancesModel newPerformancesModel = new PerformancesModel(id, name, date, time, troup, hall, status);
             result.add(newPerformancesModel);
         }

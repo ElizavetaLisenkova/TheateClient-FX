@@ -3,12 +3,9 @@ package ApiService;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import models.HallsModel;
 import models.PerformancesModel;
 import models.TicketsModel;
-import models.TroupsModel;
 import utils.HttpClass;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,17 +27,14 @@ public class TicketsJsonParser {
     public List<TicketsModel> getTickets() {
         List<TicketsModel> result = new ArrayList<>();
         String buffer = HttpClass.GetRequest(ServerURL + apiURL);
-
         JsonArray jsonResult = JsonParser.parseString(buffer).getAsJsonArray();
         for (int i = 0; i < jsonResult.size(); i++) {
             JsonObject currentTicketsModel = jsonResult.get(i).getAsJsonObject();
-
             Long id = currentTicketsModel.get("id").getAsLong();
             Integer price = currentTicketsModel.get("price").getAsInt();
             PerformancesModel performance = new PerformancesModel(currentTicketsModel.get("performance").getAsJsonObject());
             Integer place = currentTicketsModel.get("place").getAsInt();
             String availability = currentTicketsModel.get("availability").getAsString();
-
             TicketsModel newTicketsModel = new TicketsModel(id, price, performance, place, availability);
             result.add(newTicketsModel);
         }

@@ -34,9 +34,8 @@
     -fx-pref-width: 180px;
 }
 
-
 .menu-object.active, .menu-object.active .label, .menu-object.active SVGPath, .menu-object.active .image{
-    -fx-background-color: primary-light;
+    -fx-background-color: white;
     -fx-text-fill: primary;
     -fx-fill: primary;
     -fx-image: url('../images/cinema.png');
@@ -44,7 +43,7 @@
 
 
 .menu-object:hover, .menu-object:hover .label, .menu-object:hover SVGPath, .menu-object:hover .image{
-    -fx-background-color: primary-light;
+    -fx-background-color: white;
     -fx-text-fill: primary;
     -fx-fill: primary;
     -fx-image: url('../images/cinema.png');

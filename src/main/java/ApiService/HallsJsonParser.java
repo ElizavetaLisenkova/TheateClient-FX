@@ -5,7 +5,6 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import models.HallsModel;
 import utils.HttpClass;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +19,6 @@ public class HallsJsonParser {
 
 
     public void createHall(HallsModel hall) {
-
         HttpClass.PostRequest(ServerURL + apiURL, hall.toJson());
     }
 
@@ -28,15 +26,12 @@ public class HallsJsonParser {
     public List<HallsModel> getHalls() {
         List<HallsModel> result = new ArrayList<>();
         String buffer = HttpClass.GetRequest(ServerURL + apiURL);
-
         JsonArray jsonResult = JsonParser.parseString(buffer).getAsJsonArray();
-
         for (int i = 0; i < jsonResult.size(); i++) {
             JsonObject currentHallsModel = jsonResult.get(i).getAsJsonObject();
             Long id = currentHallsModel.get("id").getAsLong();
             String name = currentHallsModel.get("name").getAsString();
             Integer seatsNumber = currentHallsModel.get("totalPlaces").getAsInt();
-
             HallsModel newHallsModel = new HallsModel(id, name, seatsNumber);
             result.add(newHallsModel);
         }
