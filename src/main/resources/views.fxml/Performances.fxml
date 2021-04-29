@@ -77,7 +77,6 @@
         </HBox>
         <HBox alignment="CENTER" prefHeight="30.0" prefWidth="1080.0" VBox.vgrow="ALWAYS">
             <children>
-            <HBox prefHeight="100.0" prefWidth="200.0" />
                 <Label fx:id="message" textFill="WHITE">
                     <font>
                         <Font size="14.0" />
