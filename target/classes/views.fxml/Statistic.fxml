@@ -3,12 +3,18 @@
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<BarChart fx:id="myChart" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Statistic">
-  <xAxis>
-    <CategoryAxis side="BOTTOM" />
-  </xAxis>
-  <yAxis>
-    <NumberAxis side="LEFT" />
-  </yAxis>
-</BarChart>
+
+<AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.Statistic">
+   <children>
+      <BarChart fx:id="myChart" title="Статистика количества актеров в каждой труппе">
+        <xAxis>
+          <CategoryAxis fx:id="troupX" label="Труппа" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis label="Количество актеров" side="LEFT" />
+        </yAxis>
+      </BarChart>
+   </children>
+</AnchorPane>

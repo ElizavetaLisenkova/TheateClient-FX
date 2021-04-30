@@ -11,6 +11,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import models.TroupsModel;
 
+import java.util.Arrays;
+
 public class Troups {
 
     @FXML
@@ -51,8 +53,7 @@ public class Troups {
 
     @FXML
     void showStatistic() {
-        Statistic st = new Statistic();
-        st.show();
+        Statistic.show();
     }
 
 

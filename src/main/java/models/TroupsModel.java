@@ -66,6 +66,7 @@ public class TroupsModel implements ApiModel{
 
     @Override
     public String toString() {
-        return id.get()+". " + name.get();
+        return id.get() + ". " + name.get();
     }
+
 }
